@@ -8,6 +8,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/landingPage-form.fxml"))));
         stage.show();
+        //Hello
 
     }
 
