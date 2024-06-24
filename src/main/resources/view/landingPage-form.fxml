@@ -6,14 +6,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="422.0" prefWidth="600.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controller.LandingPageController">
+<AnchorPane prefHeight="422.0" prefWidth="600.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.LandingPageController">
    <children>
       <Text fill="#1a5ebe" layoutX="224.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify" wrappingWidth="151.18792724609375">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Text>
-      <Button layoutX="262.0" layoutY="210.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #3742fa;" text="Send OTP" textFill="WHITE">
+      <Button layoutX="262.0" layoutY="210.0" mnemonicParsing="false" onAction="#SendOtpAction" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #3742fa;" text="Send OTP" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.773585319519043" />
          </font>
@@ -33,29 +33,14 @@
             <Font name="System Bold" size="11.773585319519043" />
          </font>
       </Button>
-      <JFXTextField layoutX="144.0" layoutY="172.0" prefHeight="25.0" prefWidth="288.0" />
-      <Text fill="#838088" layoutX="144.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email : ">
+      <JFXTextField fx:id="emailField" layoutX="144.0" layoutY="172.0" prefHeight="25.0" prefWidth="288.0" promptText="Email :" />
+      <Text fill="#838088" layoutX="144.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <JFXTextField layoutX="146.0" layoutY="262.0" prefHeight="25.0" prefWidth="288.0" />
-      <Text fill="#838088" layoutX="146.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
-      <JFXTextField layoutX="146.0" layoutY="304.0" prefHeight="25.0" prefWidth="288.0" />
-      <Text fill="#838088" layoutX="146.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-enter New Password :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
-      <JFXTextField layoutX="146.0" layoutY="349.0" prefHeight="25.0" prefWidth="203.0" />
-      <Text fill="#838088" layoutX="146.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OTP Code :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
+      <JFXTextField layoutX="146.0" layoutY="262.0" prefHeight="25.0" prefWidth="288.0" promptText="New Password :" />
+      <JFXTextField layoutX="146.0" layoutY="304.0" prefHeight="25.0" prefWidth="288.0" promptText="Re-enter New Password :" />
+      <JFXTextField layoutX="146.0" layoutY="349.0" prefHeight="25.0" prefWidth="203.0" promptText="OTP Code :" />
    </children>
 </AnchorPane>
