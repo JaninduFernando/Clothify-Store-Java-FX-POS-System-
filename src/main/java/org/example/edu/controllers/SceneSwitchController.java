@@ -19,9 +19,9 @@ public class SceneSwitchController {
         return instance;
     }
 
-    public void switchScene(AnchorPane currentAnchorPane, String fxml) throws IOException {
+    public void switchScene(AnchorPane landing, String fxml) throws IOException {
         AnchorPane pane  = FXMLLoader.load(getClass().getResource("/view/"+fxml));
-        currentAnchorPane.getChildren().setAll(pane);
+        landing.getChildren().setAll(pane);
     }
 }
 

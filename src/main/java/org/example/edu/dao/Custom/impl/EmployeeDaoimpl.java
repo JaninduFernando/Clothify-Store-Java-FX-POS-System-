@@ -28,7 +28,7 @@ public class EmployeeDaoimpl implements EmployeeDao {
     @Override
     public ObservableList<UserEntity> SearchAll() {
         Session session = HibernateUtil.getSession();
-        Transaction transaction = session.getTransaction();
+        session.getTransaction().begin();
 
         List<UserEntity> userList = session.createQuery("FROM user").list();
         ObservableList<UserEntity> list= FXCollections.observableArrayList();

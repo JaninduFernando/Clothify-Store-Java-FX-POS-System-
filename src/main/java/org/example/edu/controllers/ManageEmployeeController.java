@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,16 +19,28 @@ import java.util.ResourceBundle;
 
 public class ManageEmployeeController implements Initializable {
 
-    public JFXTextField txtId;
-    public JFXTextField txtName;
-    public JFXTextField txtAddress;
-    public JFXTextField txtEmail;
+    public JFXTextField employeeid;
+    public JFXTextField employeeemail;
+    public JFXTextField employeeaddress;
+    public JFXTextField employeename;
+    @FXML
+    private TableColumn<?, ?> addresscol;
 
-    public TableView Table1;
-    public TableColumn colId;
-    public TableColumn colName;
-    public TableColumn colAddress;
-    public TableColumn colEmail;
+    @FXML
+    private TableColumn<?, ?> emailcol;
+    @FXML
+    private TableView<?> employeetable;
+
+    @FXML
+    private TableColumn<?, ?> idcol;
+
+    @FXML
+    private TableColumn<?, ?> namecol;
+
+
+
+
+
     public ComboBox Cmb;
     public Button Addbuttton;
 
@@ -37,24 +50,16 @@ public class ManageEmployeeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        loadDropMenu();
 
+        idcol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        namecol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        addresscol.setCellValueFactory(new PropertyValueFactory<>("address"));
+        emailcol.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-        txtId.setText(employeeBoImpl.generateEmployeeId());
-        Table1.setItems(employeeBoImpl.getAllUsers());
+        employeeid.setText(employeeBoImpl.generateEmployeeId());
+        employeetable.setItems(employeeBoImpl.getAllUsers());
     }
 
-    private void loadDropMenu() {
-        ObservableList<Object> items = FXCollections.observableArrayList();
-        items.add("Admin Panel");
-        items.add("Employee");
-        Cmb.setItems(items);
-    }
 
     public void AddAction(ActionEvent actionEvent) {
 
@@ -66,27 +71,27 @@ public class ManageEmployeeController implements Initializable {
         String password = employeeBoImpl.passwordEncrypt(encrypt);
 
         User user = new User(
-                txtId.getText(),
-                txtName.getText(),
-                txtEmail.getText(),
+                employeeid.getText(),
+                employeename.getText(),
+                employeeemail.getText(),
                 password,
-                Cmb.getValue().toString(),
-                txtAddress.getText()
+                "Employee",
+                employeeaddress.getText()
         );
-        if (!txtName.getText().equals("") && employeeBoImpl.isValidEmail(txtEmail.getText()) && !txtAddress.getText().equals("")) {
+        if (!employeename.getText().equals("") && employeeBoImpl.isValidEmail(employeeemail.getText()) && !employeeaddress.getText().equals("")) {
 
 
             boolean isInsert = employeeBoImpl.insertUser(user);
             if (isInsert) {
-                Table1.setItems(employeeBoImpl.getAllUsers());
+                employeetable.setItems(employeeBoImpl.getAllUsers());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Employee Added");
                 alert.setContentText("Employee Added Successfully..!");
                 alert.showAndWait();
-                txtId.setText(employeeBoImpl.generateEmployeeId());
-                txtAddress.setText("");
-                txtName.setText("");
-                txtEmail.setText("");
+                employeeid.setText(employeeBoImpl.generateEmployeeId());
+                employeeaddress.setText("");
+                employeename.setText("");
+                employeeemail.setText("");
             }
 
         } else {
@@ -98,48 +103,45 @@ public class ManageEmployeeController implements Initializable {
 
     public void searchAction(ActionEvent actionEvent) {
 
-        User user = employeeBoImpl.getUserById(txtId.getText());
-        txtName.setText(user.getName());
-        txtEmail.setText(user.getEmail());
-        Cmb.setValue(user.getRole());
-        txtAddress.setText(user.getAddress());
+        User user = employeeBoImpl.getUserById(employeeid.getText());
+        employeename.setText(user.getName());
+        employeeemail.setText(user.getEmail());
+        employeeaddress.setText(user.getAddress());
 
     }
 
-    public void clear(){
+    public void clear() {
 
-        txtId.setText("");
-        txtName.setText("");
-        txtEmail.setText("");
-        Cmb.setValue("");
-        txtAddress.setText("");
+        employeeid.setText("");
+        employeename.setText("");
+        employeeemail.setText("");
+        employeeaddress.setText("");
     }
-
 
 
     public void UpdateAction(ActionEvent actionEvent) {
 
-        if (!txtEmail.getText().equals("") && !txtAddress.getText().equals("") && !txtName.getText().equals("")){
-            User user = new User(txtId.getText(),
-                    txtName.getText(),
-                    txtEmail.getText(),
-                    null ,
+        if (!employeeemail.getText().equals("") && !employeeaddress.getText().equals("") && !employeename.getText().equals("")) {
+            User user = new User(employeeid.getText(),
+                    employeename.getText(),
+                    employeeemail.getText(),
                     null,
-                    txtAddress.getText());
+                    null,
+                    employeeaddress.getText());
 
             boolean isUpdated = employeeBoImpl.updateUser(user);
-            if (isUpdated){
+            if (isUpdated) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Employee Update");
                 alert.setContentText("Employee Updated Successfully");
                 alert.showAndWait();
-                txtEmail.setText("");
-                txtAddress.setText("");
-                txtName.setText("");
-                Table1.setItems(employeeBoImpl.getAllUsers());
+                employeeemail.setText("");
+                employeeaddress.setText("");
+                employeename.setText("");
+                employeetable.setItems(employeeBoImpl.getAllUsers());
                 clear();
             }
-        }else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Something Missing");
             alert.setContentText("Please Check your Form again..!!!");
@@ -151,23 +153,23 @@ public class ManageEmployeeController implements Initializable {
 
     public void DeleteActiion(ActionEvent actionEvent) {
 
-        if (!txtId.getText().equals("")){
+        if (!employeeid.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Deleting");
             alert.setContentText("Are you sure want to delete this Employee");
             Optional<ButtonType> result = alert.showAndWait();
 
-            if (result.get()== ButtonType.OK){
-                boolean isDeleted = employeeBoImpl.deleteUserById(txtId.getText());
-                if (isDeleted){
+            if (result.get() == ButtonType.OK) {
+                boolean isDeleted = employeeBoImpl.deleteUserById(employeeid.getText());
+                if (isDeleted) {
                     Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                     alert2.setTitle("Employee Deleted");
                     alert2.setContentText("Employee deleted successfully");
                     alert2.showAndWait();
-                    Table1.setItems(employeeBoImpl.getAllUsers());
-                    txtEmail.setText("");
-                    txtAddress.setText("");
-                    txtName.setText("");
+                    employeetable.setItems(employeeBoImpl.getAllUsers());
+                    employeeemail.setText("");
+                    employeeaddress.setText("");
+                    employeename.setText("");
                     clear();
                 }
             }
@@ -176,7 +178,7 @@ public class ManageEmployeeController implements Initializable {
     }
 
     public void ReleaseEmailkey(KeyEvent keyEvent) {
-        boolean isValidEmail = employeeBoImpl.isValidEmail(txtEmail.getText());
+        boolean isValidEmail = employeeBoImpl.isValidEmail(employeeemail.getText());
         if (!isValidEmail) {
             Addbuttton.setVisible(true);
         } else {
@@ -184,22 +186,14 @@ public class ManageEmployeeController implements Initializable {
         }
     }
 
-
-
-
-
-    public void DashAction(ActionEvent actionEvent) {
-    }
-
-    public void SupplierAction(ActionEvent actionEvent) {
-    }
-
-    public void ManageAction(ActionEvent actionEvent) {
-    }
-
-    public void OrderAction(ActionEvent actionEvent) {
-    }
-
-    public void ItemAction(ActionEvent actionEvent) {
+    public void addaction(ActionEvent actionEvent) {
+        System.out.println(employeename.getText());
+        System.out.println(employeeaddress.getText());
+        System.out.println(employeeemail.getText());
     }
 }
+
+
+
+
+
