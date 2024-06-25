@@ -38,10 +38,6 @@ public class ManageEmployeeController implements Initializable {
     private TableColumn<?, ?> namecol;
 
 
-
-
-
-    public ComboBox Cmb;
     public Button Addbuttton;
 
     EmployeeBoImpl employeeBoImpl = new EmployeeBoImpl();
@@ -101,14 +97,7 @@ public class ManageEmployeeController implements Initializable {
         //clear();
     }
 
-    public void searchAction(ActionEvent actionEvent) {
 
-        User user = employeeBoImpl.getUserById(employeeid.getText());
-        employeename.setText(user.getName());
-        employeeemail.setText(user.getEmail());
-        employeeaddress.setText(user.getAddress());
-
-    }
 
     public void clear() {
 
@@ -119,8 +108,36 @@ public class ManageEmployeeController implements Initializable {
     }
 
 
-    public void UpdateAction(ActionEvent actionEvent) {
 
+
+
+    
+
+    public void ReleaseEmailkey(KeyEvent keyEvent) {
+        boolean isValidEmail = employeeBoImpl.isValidEmail(employeeemail.getText());
+        if (!isValidEmail) {
+            Addbuttton.setVisible(true);
+        } else {
+            Addbuttton.setDisable(false);
+        }
+    }
+
+    public void addaction(ActionEvent actionEvent) {
+        
+        
+        System.out.println(employeename.getText());
+        System.out.println(employeeaddress.getText());
+        System.out.println(employeeemail.getText());
+    }
+
+    public void searchaction(ActionEvent actionEvent) {
+        User user = employeeBoImpl.getUserById(employeeid.getText());
+        employeename.setText(user.getName());
+        employeeemail.setText(user.getEmail());
+        employeeaddress.setText(user.getAddress());
+    }
+
+    public void updateaction(ActionEvent actionEvent) {
         if (!employeeemail.getText().equals("") && !employeeaddress.getText().equals("") && !employeename.getText().equals("")) {
             User user = new User(employeeid.getText(),
                     employeename.getText(),
@@ -150,9 +167,7 @@ public class ManageEmployeeController implements Initializable {
 
     }
 
-
-    public void DeleteActiion(ActionEvent actionEvent) {
-
+    public void deleteaction(ActionEvent actionEvent) {
         if (!employeeid.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Deleting");
@@ -174,24 +189,24 @@ public class ManageEmployeeController implements Initializable {
                 }
             }
         }
-
     }
 
-    public void ReleaseEmailkey(KeyEvent keyEvent) {
-        boolean isValidEmail = employeeBoImpl.isValidEmail(employeeemail.getText());
-        if (!isValidEmail) {
-            Addbuttton.setVisible(true);
-        } else {
-            Addbuttton.setDisable(false);
-        }
+    public void dashboardaction(ActionEvent actionEvent) {
     }
 
-    public void addaction(ActionEvent actionEvent) {
-        System.out.println(employeename.getText());
-        System.out.println(employeeaddress.getText());
-        System.out.println(employeeemail.getText());
+    public void manageemployeeaction(ActionEvent actionEvent) {
+    }
+
+    public void itemdetailsaction(ActionEvent actionEvent) {
+    }
+
+    public void supplierdetailsaction(ActionEvent actionEvent) {
+    }
+
+    public void orderdetailsaction(ActionEvent actionEvent) {
     }
 }
+
 
 
 

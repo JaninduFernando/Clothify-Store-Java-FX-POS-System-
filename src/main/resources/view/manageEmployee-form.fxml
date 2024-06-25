@@ -18,7 +18,7 @@
       <JFXTextField fx:id="employeeemail" layoutX="481.0" layoutY="208.0" prefHeight="25.0" prefWidth="196.0" promptText="Employee Email" />
       <JFXTextField fx:id="employeeaddress" layoutX="242.0" layoutY="208.0" prefHeight="25.0" prefWidth="195.0" promptText="Employee Address" />
       <JFXTextField fx:id="employeename" layoutX="242.0" layoutY="150.0" prefHeight="25.0" prefWidth="195.0" promptText="Employee Name" />
-      <Button layoutX="482.0" layoutY="99.0" mnemonicParsing="false" style="-fx-background-color: #3742fa;" text="Search" textFill="#fffcfc">
+      <Button layoutX="482.0" layoutY="99.0" mnemonicParsing="false" onAction="#searchaction" style="-fx-background-color: #3742fa;" text="Search" textFill="#fffcfc">
          <font>
             <Font name="System Bold" size="11.773585319519043" />
          </font>
@@ -36,12 +36,12 @@
             <Font name="System Bold" size="11.773585319519043" />
          </font>
       </Button>
-      <Button layoutX="765.0" layoutY="162.0" mnemonicParsing="false" style="-fx-background-color: C80036;" text="Delete" textFill="#fffcfc">
+      <Button layoutX="765.0" layoutY="162.0" mnemonicParsing="false" onAction="#deleteaction" style="-fx-background-color: C80036;" text="Delete" textFill="#fffcfc">
          <font>
             <Font name="System Bold" size="11.773585319519043" />
          </font>
       </Button>
-      <Button layoutX="764.0" layoutY="220.0" mnemonicParsing="false" style="-fx-background-color: #009432;" text="Update" textFill="#fffcfc">
+      <Button layoutX="764.0" layoutY="220.0" mnemonicParsing="false" onAction="#updateaction" style="-fx-background-color: #009432;" text="Update" textFill="#fffcfc">
          <font>
             <Font name="System Bold" size="11.773585319519043" />
          </font>
@@ -51,27 +51,27 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton layoutX="40.0" layoutY="130.0" text="DashBoard" textFill="WHITE">
+      <JFXButton layoutX="40.0" layoutY="130.0" onAction="#dashboardaction" text="DashBoard" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="14.0" layoutY="204.0" text="Manage Employee" textFill="WHITE">
+      <JFXButton layoutX="14.0" layoutY="204.0" onAction="#manageemployeeaction" text="Manage Employee" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="35.0" layoutY="288.0" text="Item Details" textFill="WHITE">
+      <JFXButton layoutX="35.0" layoutY="288.0" onAction="#itemdetailsaction" text="Item Details" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="25.0" layoutY="369.0" text="Supplier Details" textFill="WHITE">
+      <JFXButton layoutX="25.0" layoutY="369.0" onAction="#supplierdetailsaction" text="Supplier Details" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="30.0" layoutY="436.0" text="Order Details" textFill="WHITE">
+      <JFXButton layoutX="30.0" layoutY="436.0" onAction="#orderdetailsaction" text="Order Details" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
