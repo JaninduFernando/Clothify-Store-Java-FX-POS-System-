@@ -4,11 +4,10 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.example.edu.bo.BoFactory;
 import org.example.edu.bo.custom.impl.EmployeeBoImpl;
-import org.example.edu.entity.UserEntity;
+import org.example.edu.entity.EmployeeEntity;
 import org.example.edu.util.BoType;
 
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class SigninPageController {
 
         employeeBoImpl = BoFactory.getInstance().getBo(BoType.USER);
 
-        UserEntity userEntity = employeeBoImpl.getUserByEmail(username.getText());
+        EmployeeEntity userEntity = employeeBoImpl.getUserByEmail(username.getText());
 
 
         if (userEntity == null) {

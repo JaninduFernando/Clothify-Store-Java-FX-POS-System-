@@ -52,12 +52,36 @@ public class SupplierDaoImpl implements SupplierDao {
 
     @Override
     public boolean update(SupplierEntity supplierEntity) {
-        return false;
+
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+        Query query = session.createQuery("UPDATE supplier SET name =:name,company =:company,email =:email WHERE id =:id");
+        query.setParameter("name",supplierEntity.getName());
+        query.setParameter("company",supplierEntity.getCompany());
+        query.setParameter("email",supplierEntity.getEmail());
+        query.setParameter("id",supplierEntity.getId());
+
+        int i = query.executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+
+        return i>0;
+
     }
 
     @Override
     public boolean delete(String s) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+
+        Query query = session.createQuery("DELETE FROM supplier WHERE id=:id");
+        query.setParameter("id",s);
+        int i = query.executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+
+        return i>0;
+
     }
 
     public String getLatestId() {
@@ -70,6 +94,18 @@ public class SupplierDaoImpl implements SupplierDao {
         session.close();
         return id;
 
+    }
+    public SupplierEntity searchById(String id) {
+
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+
+        Query query = session.createQuery("FROM supplier WHERE id=:id");
+        query.setParameter("id",id);
+        SupplierEntity supplierEntity = (SupplierEntity) query.uniqueResult();
+        session.close();
+
+        return supplierEntity;
     }
 }
 

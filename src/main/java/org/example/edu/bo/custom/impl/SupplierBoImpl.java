@@ -23,7 +23,7 @@ public class SupplierBoImpl implements SupplierBo {
     public boolean insertSupplier(Supplier supplier) {
 
         SupplierEntity supplierEntity = new ObjectMapper().convertValue(supplier, SupplierEntity.class);
-        return  supplierDao.insert(supplierEntity);
+        return supplierDao.insert(supplierEntity);
 
     }
 
@@ -41,12 +41,23 @@ public class SupplierBoImpl implements SupplierBo {
     public String generateSupId() {
 
         String lastSupId = supplierDao.getLatestId();
-        if (lastSupId==null){
+        if (lastSupId == null) {
             return "S0001";
         }
 
         int number = Integer.parseInt(lastSupId.split("S")[1]);
         number++;
         return String.format("S%04d", number);
+    }
+
+    public Supplier getSupById(String id) {
+        SupplierEntity supplierEntity = supplierDao.searchById(id);
+        return new ObjectMapper().convertValue(supplierEntity, Supplier.class);
+    }
+
+    public boolean deleteSupById(String text) {return supplierDao.delete(text);}
+
+        public boolean updateSup(Supplier supplier) {
+        return supplierDao.update(new ObjectMapper().convertValue(supplier, SupplierEntity.class));
     }
 }

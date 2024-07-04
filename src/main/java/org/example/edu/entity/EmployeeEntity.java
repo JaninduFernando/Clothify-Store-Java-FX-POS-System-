@@ -16,7 +16,7 @@ import lombok.Setter;
     @NoArgsConstructor
     @Entity(name = "user")
     @Table(name = "user")
-    public class UserEntity {
+    public class EmployeeEntity {
 
         @Id
         private String id;

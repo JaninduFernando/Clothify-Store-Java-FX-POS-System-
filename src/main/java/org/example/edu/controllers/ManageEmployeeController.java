@@ -1,8 +1,6 @@
 package org.example.edu.controllers;
 
 import com.jfoenix.controls.JFXTextField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import org.example.edu.bo.custom.impl.EmployeeBoImpl;
-import org.example.edu.model.User;
+import org.example.edu.model.Employee;
 
 import java.net.URL;
 import java.util.Optional;
@@ -66,7 +64,7 @@ public class ManageEmployeeController implements Initializable {
         String encrypt = Integer.toString(p);
         String password = employeeBoImpl.passwordEncrypt(encrypt);
 
-        User user = new User(
+        Employee user = new Employee(
                 employeeid.getText(),
                 employeename.getText(),
                 employeeemail.getText(),
@@ -131,7 +129,7 @@ public class ManageEmployeeController implements Initializable {
     }
 
     public void searchaction(ActionEvent actionEvent) {
-        User user = employeeBoImpl.getUserById(employeeid.getText());
+        Employee user = employeeBoImpl.getUserById(employeeid.getText());
         employeename.setText(user.getName());
         employeeemail.setText(user.getEmail());
         employeeaddress.setText(user.getAddress());
@@ -139,7 +137,7 @@ public class ManageEmployeeController implements Initializable {
 
     public void updateaction(ActionEvent actionEvent) {
         if (!employeeemail.getText().equals("") && !employeeaddress.getText().equals("") && !employeename.getText().equals("")) {
-            User user = new User(employeeid.getText(),
+            Employee user = new Employee(employeeid.getText(),
                     employeename.getText(),
                     employeeemail.getText(),
                     null,

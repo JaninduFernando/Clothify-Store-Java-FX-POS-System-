@@ -3,35 +3,35 @@ package org.example.edu.dao.Custom.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.edu.dao.Custom.EmployeeDao;
-import org.example.edu.entity.UserEntity;
+import org.example.edu.entity.SupplierEntity;
+import org.example.edu.entity.EmployeeEntity;
 import org.example.edu.util.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import java.util.List;
 
 public class EmployeeDaoimpl implements EmployeeDao {
 
     @Override
-    public UserEntity Search(String s) {
+    public EmployeeEntity Search(String s) {
 
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
 
         Query query = session.createQuery("FROM user WHERE email=:email");
         query.setParameter("email",s);
-        UserEntity userEntity = (UserEntity) query.uniqueResult();
+        EmployeeEntity userEntity = (EmployeeEntity) query.uniqueResult();
         session.close();
         return userEntity;
     }
 
     @Override
-    public ObservableList<UserEntity> SearchAll() {
+    public ObservableList<EmployeeEntity> SearchAll() {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
 
-        List<UserEntity> userList = session.createQuery("FROM user").list();
-        ObservableList<UserEntity> list= FXCollections.observableArrayList();
+        List<EmployeeEntity> userList = session.createQuery("FROM user").list();
+        ObservableList<EmployeeEntity> list= FXCollections.observableArrayList();
         session.close();
         userList.forEach(userEntity -> {
             list.add(userEntity);
@@ -40,7 +40,7 @@ public class EmployeeDaoimpl implements EmployeeDao {
     }
 
     @Override
-    public boolean insert(UserEntity userEntity) {
+    public boolean insert(EmployeeEntity userEntity) {
 
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
@@ -52,7 +52,7 @@ public class EmployeeDaoimpl implements EmployeeDao {
     }
 
     @Override
-    public boolean update(UserEntity userEntity) {
+    public boolean update(EmployeeEntity userEntity) {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
         Query query = session.createQuery("UPDATE user SET name =:name,address =:address,email =:email WHERE id =:id");
@@ -80,16 +80,16 @@ public class EmployeeDaoimpl implements EmployeeDao {
         return i>0;
     }
 
-    public UserEntity searchById(String id) {
+    public SupplierEntity searchById(String id) {
 
         Session session = HibernateUtil.getSession();
         session.getTransaction();
 
         Query query = session.createQuery("FROM user WHERE id=:id");
         query.setParameter("id",id);
-        UserEntity userEntity = (UserEntity) query.uniqueResult();
+        SupplierEntity supplierEntity = (SupplierEntity) query.uniqueResult();
         session.close();
-        return userEntity;
+        return supplierEntity;
 
     }
 

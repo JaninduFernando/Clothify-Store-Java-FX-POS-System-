@@ -9,14 +9,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+public class OrderItem {
 
-public class User {
+    private Integer id;
 
-    private String id;
-    private String name;
-    private String email;
-    private String password;
-    private String role;
-    private String address;
-
+    private String orderId;
+    private String itemCode;
+    private Integer qty;
+    private Double discount;
 }

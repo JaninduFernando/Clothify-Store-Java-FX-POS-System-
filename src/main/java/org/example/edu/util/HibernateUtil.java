@@ -1,7 +1,7 @@
 package org.example.edu.util;
 
 import org.example.edu.entity.CustomerEntity;
-import org.example.edu.entity.UserEntity;
+import org.example.edu.entity.EmployeeEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -19,7 +19,7 @@ public class HibernateUtil {
 
         Metadata metadata = new MetadataSources(build)
 
-                .addAnnotatedClass(UserEntity.class)
+                .addAnnotatedClass(EmployeeEntity.class)
                 .addAnnotatedClass(CustomerEntity.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)

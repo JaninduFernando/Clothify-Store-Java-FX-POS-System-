@@ -3,16 +3,14 @@ package org.example.edu.controllers;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import org.example.edu.bo.custom.impl.SupplierBoImpl;
 import org.example.edu.model.Supplier;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManageSuppliersController implements Initializable {
@@ -46,6 +44,11 @@ public class ManageSuppliersController implements Initializable {
     }
 
     public void searchaction(ActionEvent actionEvent) {
+
+        Supplier supplier = supplierBoImpl.getSupById(supid.getText());
+        supname.setText(supplier.getName());
+        supemail.setText(supplier.getEmail());
+        supaddress.setText(supplier.getAddress());
     }
 
     public void addaction(ActionEvent actionEvent) {
@@ -79,9 +82,58 @@ public class ManageSuppliersController implements Initializable {
     }
 
     public void deleteaction(ActionEvent actionEvent) {
+
+        if (!supid.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Deleting");
+            alert.setContentText("Are you sure want to delete this Supplier");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.get()== ButtonType.OK){
+                boolean isDeleted = supplierBoImpl.deleteSupById(supid.getText());
+                if (isDeleted){
+                    Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                    alert2.setTitle("Supplier Deleted");
+                    alert2.setContentText("Supplier deleted successfully");
+                    alert2.showAndWait();
+                    suppliertable.setItems(supplierBoImpl.getAllSupplier());
+                    supemail.setText("");
+                    supaddress.setText("");
+                    supname.setText("");
+                    supid.setText(supplierBoImpl.generateSupId());
+                }
+            }
+        }
     }
 
     public void updateaction(ActionEvent actionEvent) {
+
+        if (!supemail.getText().equals("") && !supaddress.getText().equals("") && !supname.getText().equals("")){
+            Supplier supplier = new Supplier(
+                    supid.getText(),
+                    supname.getText(),
+                    supemail.getText(),
+                    supaddress.getText());
+
+            boolean isUpdated = supplierBoImpl.updateSup(supplier);
+            if (isUpdated){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Customer Update");
+                alert.setContentText("Customer Updated Successfully");
+                alert.showAndWait();
+                supemail.setText("");
+                supaddress.setText("");
+                supname.setText("");
+                suppliertable.setItems(supplierBoImpl.getAllSupplier());
+                supid.setText(supplierBoImpl.generateSupId());
+
+            }
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Something Missing");
+            alert.setContentText("Please Check your Form again..!!!");
+            alert.showAndWait();
+        }
     }
 
     public void dashboardaction(ActionEvent actionEvent) {

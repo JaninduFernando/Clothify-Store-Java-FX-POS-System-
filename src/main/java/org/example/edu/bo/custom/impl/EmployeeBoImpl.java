@@ -7,8 +7,9 @@ import org.example.edu.bo.custom.EmployeeBo;
 import org.example.edu.controllers.LandingPageController;
 import org.example.edu.dao.Custom.impl.EmployeeDaoimpl;
 import org.example.edu.dao.DaoFactory;
-import org.example.edu.entity.UserEntity;
-import org.example.edu.model.User;
+import org.example.edu.entity.SupplierEntity;
+import org.example.edu.entity.EmployeeEntity;
+import org.example.edu.model.Employee;
 import org.example.edu.util.DaoType;
 
 import javax.mail.*;
@@ -24,9 +25,9 @@ public class EmployeeBoImpl implements EmployeeBo {
     static EmployeeDaoimpl employeeDaoimpl = DaoFactory.getInstance().getDao(DaoType.USER);
 
 
-    public boolean insertUser(User user) {
+    public boolean insertUser(Employee user) {
 
-        UserEntity userEntity = new ObjectMapper().convertValue(user, UserEntity.class);
+        EmployeeEntity userEntity = new ObjectMapper().convertValue(user, EmployeeEntity.class);
         return employeeDaoimpl.insert(userEntity);
 
     }
@@ -34,25 +35,25 @@ public class EmployeeBoImpl implements EmployeeBo {
 
     public ObservableList getAllUsers() {
 
-        ObservableList<UserEntity> list = employeeDaoimpl.SearchAll();
-        ObservableList<User> userList = FXCollections.observableArrayList();
+        ObservableList<EmployeeEntity> list = employeeDaoimpl.SearchAll();
+        ObservableList<Employee> userList = FXCollections.observableArrayList();
 
         list.forEach(userEntity -> {
-            userList.add(new ObjectMapper().convertValue(userEntity,User.class));
+            userList.add(new ObjectMapper().convertValue(userEntity, Employee.class));
         });
         return userList;
     }
 
-    public User getUserById(String id) {
+    public Employee getUserById(String id) {
 
-        UserEntity userEntity = employeeDaoimpl.searchById(id);
-        return new ObjectMapper().convertValue(userEntity,User.class);
+        SupplierEntity supplierEntity = employeeDaoimpl.searchById(id);
+        return new ObjectMapper().convertValue(supplierEntity, Employee.class);
 
     }
 
-    public boolean updateUser(User user) {
+    public boolean updateUser(Employee user) {
 
-        UserEntity userEntity = new ObjectMapper().convertValue(user, UserEntity.class);
+        EmployeeEntity userEntity = new ObjectMapper().convertValue(user, EmployeeEntity.class);
 
         return employeeDaoimpl.update(userEntity);
 
@@ -134,7 +135,7 @@ public class EmployeeBoImpl implements EmployeeBo {
         return employeeDaoimpl.update(email,encryptPassword);
     }
 
-    public UserEntity getUserByEmail(String email) {
+    public EmployeeEntity getUserByEmail(String email) {
         return employeeDaoimpl.Search(email);
 
     }
