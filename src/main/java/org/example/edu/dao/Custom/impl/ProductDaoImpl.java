@@ -12,12 +12,12 @@ import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
 
-    @Override
+
     public ProductEntity search(String s) {
         return null;
     }
 
-    @Override
+
     public ObservableList<ProductEntity> searchAll() {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();

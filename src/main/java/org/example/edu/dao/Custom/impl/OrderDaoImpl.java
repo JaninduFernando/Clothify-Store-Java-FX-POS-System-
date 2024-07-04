@@ -11,12 +11,12 @@ import org.hibernate.query.Query;
 public class OrderDaoImpl implements OrderDao {
 
     // OrderDaoImpl orderDao = DaoFactory.getInstance().getDao(DaoType. ORDER);
-    @Override
+
     public OrderEntity search(String s) {
         return null;
     }
 
-    @Override
+
     public ObservableList<OrderEntity> searchAll() {
         return null;
     }

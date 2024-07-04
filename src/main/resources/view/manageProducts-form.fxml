@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Anchor2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="icet.edu.drm.controller.AddProductFormController">
+<AnchorPane fx:id="productanchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ManageProductsController">
    <children>
-      <JFXTextField fx:id="txtId" layoutX="232.0" layoutY="66.0" prefHeight="26.0" prefWidth="147.0" promptText="Product Id">
+      <JFXTextField fx:id="pId" layoutX="232.0" layoutY="66.0" prefHeight="26.0" prefWidth="147.0" promptText="Product Id">
          <font>
             <Font size="13.0" />
          </font>
@@ -25,24 +25,24 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtName" layoutX="450.0" layoutY="66.0" prefHeight="26.0" prefWidth="147.0" promptText="Product Name">
+      <JFXTextField fx:id="pName" layoutX="450.0" layoutY="66.0" prefHeight="26.0" prefWidth="147.0" promptText="Product Name">
          <font>
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtQty" layoutX="450.0" layoutY="135.0" prefHeight="26.0" prefWidth="147.0" promptText="Qty">
+      <JFXTextField fx:id="pQty" layoutX="450.0" layoutY="135.0" prefHeight="26.0" prefWidth="147.0" promptText="Qty">
          <font>
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="Table1" layoutX="214.0" layoutY="293.0" prefHeight="182.0" prefWidth="546.0">
+      <TableView fx:id="productTable" layoutX="214.0" layoutY="293.0" prefHeight="182.0" prefWidth="546.0">
          <columns>
-            <TableColumn fx:id="colId" text="Product Id" />
-            <TableColumn fx:id="colName" prefWidth="104.79998779296875" text="Product Name" />
-            <TableColumn fx:id="ColSize" prefWidth="108.00006103515625" text="Product Size " />
-            <TableColumn fx:id="ColQty" prefWidth="70.4000244140625" text="Qty" />
-            <TableColumn fx:id="ColSupId" prefWidth="88.0" text="SupID" />
-            <TableColumn fx:id="colPrice" prefWidth="105.5999755859375" text="Price per 1" />
+            <TableColumn fx:id="idcol" text="Product Id" />
+            <TableColumn fx:id="namecol" prefWidth="104.79998779296875" text="Product Name" />
+            <TableColumn fx:id="sizecol" prefWidth="108.00006103515625" text="Product Size " />
+            <TableColumn fx:id="qtycol" prefWidth="70.4000244140625" text="Qty" />
+            <TableColumn fx:id="supIdcol" prefWidth="88.0" text="SupID" />
+            <TableColumn fx:id="pricecol" prefWidth="105.5999755859375" text="Price per 1" />
          </columns>
       </TableView>
       <Button layoutX="686.0" layoutY="67.0" mnemonicParsing="false" onAction="#AddAction" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #27ae60;" text="Add" textFill="WHITE">
@@ -104,7 +104,7 @@
       </Button>
       <ComboBox fx:id="cmb" layoutX="230.0" layoutY="136.0" prefWidth="150.0" promptText="Product Size" />
       <ComboBox fx:id="cmbSup" layoutX="230.0" layoutY="211.0" prefHeight="26.0" prefWidth="150.0" promptText="Supplier Id" />
-      <JFXTextField fx:id="txtprice" layoutX="450.0" layoutY="211.0" prefHeight="26.0" prefWidth="147.0" promptText="Price Per One" />
+      <JFXTextField fx:id="price" layoutX="450.0" layoutY="211.0" prefHeight="26.0" prefWidth="147.0" promptText="Price Per One" />
       <Separator layoutX="412.0" layoutY="79.0" orientation="VERTICAL" prefHeight="182.0" prefWidth="2.0" />
    </children>
 </AnchorPane>
