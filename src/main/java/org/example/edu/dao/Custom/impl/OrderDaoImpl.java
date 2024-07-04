@@ -22,6 +22,16 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
+    public OrderEntity Search(String s) {
+        return null;
+    }
+
+    @Override
+    public ObservableList<OrderEntity> SearchAll() {
+        return null;
+    }
+
+    @Override
     public boolean insert(OrderEntity orderEntity) {
 
         Session session = HibernateUtil.getSession();
