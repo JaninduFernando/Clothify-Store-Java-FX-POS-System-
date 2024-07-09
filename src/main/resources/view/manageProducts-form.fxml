@@ -104,7 +104,7 @@
       </Button>
       <ComboBox fx:id="cmb" layoutX="230.0" layoutY="136.0" prefWidth="150.0" promptText="Product Size" />
       <ComboBox fx:id="cmbSup" layoutX="230.0" layoutY="211.0" prefHeight="26.0" prefWidth="150.0" promptText="Supplier Id" />
-      <JFXTextField fx:id="price" layoutX="450.0" layoutY="211.0" prefHeight="26.0" prefWidth="147.0" promptText="Price Per One" />
+      <JFXTextField fx:id="pricePerOne" layoutX="450.0" layoutY="211.0" prefHeight="26.0" prefWidth="147.0" promptText="Price Per One" />
       <Separator layoutX="412.0" layoutY="79.0" orientation="VERTICAL" prefHeight="182.0" prefWidth="2.0" />
    </children>
 </AnchorPane>
