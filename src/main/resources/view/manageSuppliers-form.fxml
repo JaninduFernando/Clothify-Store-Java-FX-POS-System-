@@ -25,10 +25,10 @@
       </Button>
       <TableView fx:id="suppliertable" layoutX="217.0" layoutY="288.0" prefHeight="242.0" prefWidth="694.0">
          <columns>
-            <TableColumn fx:id="idcol" prefWidth="86.94337463378906" text="Customer Id" />
-            <TableColumn fx:id="namecol" prefWidth="192.9056396484375" text="Customer Name" />
-            <TableColumn fx:id="emailcol" prefWidth="210.11322021484375" text="Customer Email" />
-            <TableColumn fx:id="addresscol" prefWidth="201.9622802734375" text="Customer Address" />
+            <TableColumn fx:id="idcol" prefWidth="86.94337463378906" text="Supplier Id" />
+            <TableColumn fx:id="namecol" prefWidth="192.9056396484375" text="Supplier Name" />
+            <TableColumn fx:id="emailcol" prefWidth="210.11322021484375" text="Supplier Email" />
+            <TableColumn fx:id="addresscol" prefWidth="201.9622802734375" text="Supplier Address" />
          </columns>
       </TableView>
       <Button layoutX="311.0" layoutY="232.0" mnemonicParsing="false" onAction="#addaction" style="-fx-background-color: FFC700;" text="Add" textFill="WHITE">

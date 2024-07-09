@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import org.example.edu.bo.custom.impl.ProductBoImpl;
 import org.example.edu.bo.custom.impl.SupplierBoImpl;
 import org.example.edu.model.Product;
+import org.example.edu.model.Supplier;
 
 import java.net.URL;
 import java.util.Optional;

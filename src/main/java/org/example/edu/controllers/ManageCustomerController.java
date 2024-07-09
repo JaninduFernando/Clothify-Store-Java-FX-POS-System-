@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.example.edu.bo.custom.impl.CustomerBoImpl;
 import org.example.edu.model.Customer;
@@ -172,5 +173,8 @@ public class ManageCustomerController implements Initializable {
         }
 
 
+    }
+
+    public void dataBar(MouseEvent mouseEvent) {
     }
 }

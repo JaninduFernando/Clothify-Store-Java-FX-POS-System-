@@ -9,23 +9,23 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="supplieranchor" prefHeight="551.0" prefWidth="927.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewSupplierController">
+<AnchorPane fx:id="customeranchor" prefHeight="551.0" prefWidth="927.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewCustomerController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a5ebe" height="538.0" layoutX="6.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="66.0" layoutX="208.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />
-      <JFXTextField fx:id="supid" layoutX="276.0" layoutY="99.0" prefHeight="25.0" prefWidth="195.0" promptText="Supplier Id" />
-      <JFXTextField fx:id="supemail" layoutX="557.0" layoutY="191.0" prefHeight="25.0" prefWidth="196.0" promptText="Supplier Email" />
-      <JFXTextField fx:id="supaddress" layoutX="276.0" layoutY="191.0" prefHeight="25.0" prefWidth="195.0" promptText="Supplier Address" />
-      <JFXTextField fx:id="supname" layoutX="565.0" layoutY="99.0" prefHeight="25.0" prefWidth="195.0" promptText="Supplier Name" />
-      <TableView fx:id="suppliertable" layoutX="217.0" layoutY="288.0" onMouseClicked="#dataBar" prefHeight="242.0" prefWidth="694.0">
+      <JFXTextField fx:id="cusid" layoutX="268.0" layoutY="111.0" prefHeight="25.0" prefWidth="195.0" promptText="Customer Id" />
+      <JFXTextField fx:id="cusemail" layoutX="607.0" layoutY="191.0" prefHeight="25.0" prefWidth="196.0" promptText="Customer Email" />
+      <JFXTextField fx:id="cusaddress" layoutX="268.0" layoutY="191.0" prefHeight="25.0" prefWidth="195.0" promptText="Customer Address" />
+      <JFXTextField fx:id="cusname" layoutX="615.0" layoutY="99.0" prefHeight="25.0" prefWidth="195.0" promptText="Customer Name" />
+      <TableView fx:id="customertable" layoutX="217.0" layoutY="288.0" onMouseClicked="#dataBar" prefHeight="242.0" prefWidth="694.0">
          <columns>
-            <TableColumn fx:id="idcol" prefWidth="86.94337463378906" text="Supplier Id" />
-            <TableColumn fx:id="namecol" prefWidth="192.9056396484375" text="Supplier Name" />
-            <TableColumn fx:id="emailcol" prefWidth="210.11322021484375" text="Supplier Email" />
-            <TableColumn fx:id="addresscol" prefWidth="201.9622802734375" text="Supplier Address" />
+            <TableColumn fx:id="idcol" prefWidth="86.94337463378906" text="Customer Id" />
+            <TableColumn fx:id="namecol" prefWidth="192.9056396484375" text="Customer Name" />
+            <TableColumn fx:id="emailcol" prefWidth="210.11322021484375" text="Customer Email" />
+            <TableColumn fx:id="addresscol" prefWidth="201.9622802734375" text="Customer Address" />
          </columns>
       </TableView>
-      <Label layoutX="445.0" layoutY="25.0" text="View Supplier " textFill="#f7f7f7">
+      <Label layoutX="445.0" layoutY="25.0" text="Customer Managment" textFill="#f7f7f7">
          <font>
             <Font size="18.0" />
          </font>

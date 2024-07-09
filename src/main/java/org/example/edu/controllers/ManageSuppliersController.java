@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.example.edu.bo.custom.impl.SupplierBoImpl;
 import org.example.edu.model.Supplier;
@@ -150,4 +151,6 @@ public class ManageSuppliersController implements Initializable {
 
     public void orderdetailsaction(ActionEvent actionEvent) {
     }
+
+
 }
