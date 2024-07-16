@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="productanchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewProductsController">
+<AnchorPane fx:id="productanchor" onMouseClicked="#AnchorClick" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewProductsController">
    <children>
       <JFXTextField fx:id="pId" layoutX="256.0" layoutY="66.0" prefHeight="26.0" prefWidth="147.0" promptText="Product Id">
          <font>
@@ -42,7 +42,7 @@
             <TableColumn fx:id="sizecol" prefWidth="108.00006103515625" text="Product Size " />
             <TableColumn fx:id="qtycol" prefWidth="70.4000244140625" text="Qty" />
             <TableColumn fx:id="supIdcol" prefWidth="88.0" text="SupID" />
-            <TableColumn fx:id="pricecol" prefWidth="105.5999755859375" text="Price per 1" />
+            <TableColumn fx:id="pricePerOnecol" prefWidth="105.5999755859375" text="Price per 1" />
          </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b3b98" height="497.0" layoutX="-2.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" width="212.0" />
@@ -81,7 +81,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cmb" layoutX="253.0" layoutY="135.0" prefWidth="150.0" promptText="Product Size" />
+      <ComboBox fx:id="cmbSize" layoutX="253.0" layoutY="135.0" prefWidth="150.0" promptText="Product Size" />
       <ComboBox fx:id="cmbSup" layoutX="254.0" layoutY="210.0" prefHeight="26.0" prefWidth="150.0" promptText="Supplier Id" />
       <JFXTextField fx:id="pricePerOne" layoutX="524.0" layoutY="211.0" prefHeight="26.0" prefWidth="147.0" promptText="Price Per One" />
       <Separator layoutX="451.0" layoutY="80.0" orientation="VERTICAL" prefHeight="182.0" prefWidth="2.0" />
