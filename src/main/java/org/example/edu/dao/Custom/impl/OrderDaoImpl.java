@@ -76,4 +76,17 @@ public class OrderDaoImpl implements OrderDao {
     private void updateQty(String itemCode, Integer qty) {
 
     }
+
+    public OrderEntity searchById(String id) {
+
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+
+        Query query = session.createQuery("FROM order_table WHERE id=:id");
+        query.setParameter("id", id);
+        OrderEntity orderEntity = (OrderEntity) query.uniqueResult();
+        session.close();
+
+        return orderEntity;
+    }
 }

@@ -86,6 +86,9 @@ public class ManageEmployeeController implements Initializable {
                 employeeaddress.setText("");
                 employeename.setText("");
                 employeeemail.setText("");
+                employeeid.setText(employeeBoImpl.generateEmployeeId());
+                employeetable.setItems(employeeBoImpl.getAllUsers());
+
             }
 
         } else {
@@ -103,6 +106,7 @@ public class ManageEmployeeController implements Initializable {
         employeename.setText("");
         employeeemail.setText("");
         employeeaddress.setText("");
+        employeeid.setText(employeeBoImpl.generateEmployeeId());
     }
 
 

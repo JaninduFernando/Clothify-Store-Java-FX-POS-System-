@@ -37,7 +37,7 @@ public class SigninPageController {
 
         String password = employeeBoImpl.passwordDecrypt(userEntity.getPassword());
 
-        if (userEntity.getRole().equals("Admin Panel") && password.equals(passwordfield.getText())) {
+        if (userEntity.getRole().equals("Admin") && password.equals(passwordfield.getText())) {
             System.out.println("Logged");
             try {
                 SceneSwitchController.getInstance().switchScene(signinanchor, "manageEmployee-form.fxml");

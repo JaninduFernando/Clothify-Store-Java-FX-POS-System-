@@ -18,8 +18,8 @@ public class OrderBoImpl implements OrderBo {
     public String generateOrderId() {
 
 
-        String lastEmployeeId =orderDaoImpl.getLatestId();
-        if (lastEmployeeId==null){
+        String lastEmployeeId = orderDaoImpl.getLatestId();
+        if (lastEmployeeId == null) {
             return "O0001";
         }
 
@@ -41,5 +41,10 @@ public class OrderBoImpl implements OrderBo {
 
         });
         return true;
+    }
+
+    public Order getOrderById(String orderId) {
+        OrderEntity orderEntity = orderDaoImpl.searchById(orderId);
+        return new ObjectMapper().convertValue(orderEntity, Order.class);
     }
 }

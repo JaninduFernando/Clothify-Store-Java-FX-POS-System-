@@ -6,41 +6,52 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="landing" prefHeight="422.0" prefWidth="600.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.LandingPageController">
-   <children>
-      <Text fill="#1a5ebe" layoutX="224.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify" wrappingWidth="151.18792724609375">
-         <font>
-            <Font name="System Bold" size="40.0" />
-         </font>
-      </Text>
-      <Button layoutX="262.0" layoutY="210.0" mnemonicParsing="false" onAction="#SendOtpAction" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #3742fa;" text="Send OTP" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="11.773585319519043" />
-         </font>
-      </Button>
-      <Text fill="#000204" layoutX="145.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reset Your Password" wrappingWidth="192.3741455078125">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Text fill="#000001" layoutX="147.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the email address you used to register with ">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Button layoutX="364.0" layoutY="342.0" mnemonicParsing="false" onAction="#resetaction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #3742fa;" text="Reset" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="11.773585319519043" />
-         </font>
-      </Button>
-      <JFXTextField fx:id="emailField" layoutX="144.0" layoutY="172.0" prefHeight="25.0" prefWidth="288.0" promptText="Email :" />
-      <Text fill="#838088" layoutX="144.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
-      <JFXTextField fx:id="newpassword" layoutX="146.0" layoutY="262.0" prefHeight="25.0" prefWidth="288.0" promptText="New Password :" />
-      <JFXTextField fx:id="reenternewpassword" layoutX="146.0" layoutY="304.0" prefHeight="25.0" prefWidth="288.0" promptText="Re-enter New Password :" />
-      <JFXTextField fx:id="otpcode" layoutX="146.0" layoutY="349.0" prefHeight="25.0" prefWidth="203.0" promptText="OTP Code :" />
-   </children>
+<AnchorPane fx:id="landing" prefHeight="422.0" prefWidth="600.0" style="-fx-background-color: #dff9fb;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.edu.controllers.LandingPageController">
+    <children>
+        <Text fill="#1a5ebe" layoutX="224.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify"
+              wrappingWidth="151.18792724609375">
+            <font>
+                <Font name="System Bold" size="40.0"/>
+            </font>
+        </Text>
+        <Button layoutX="262.0" layoutY="210.0" mnemonicParsing="false" onAction="#SendOtpAction" prefHeight="34.0"
+                prefWidth="75.0" style="-fx-background-color: #3742fa;" text="Send OTP" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="11.773585319519043"/>
+            </font>
+        </Button>
+        <Text fill="#000204" layoutX="145.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Reset Your Password" wrappingWidth="192.3741455078125">
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </Text>
+        <Text fill="#000001" layoutX="147.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Enter the email address you used to register with ">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+        <Button layoutX="364.0" layoutY="342.0" mnemonicParsing="false" onAction="#resetaction" prefHeight="34.0"
+                prefWidth="69.0" style="-fx-background-color: #3742fa;" text="Reset" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="11.773585319519043"/>
+            </font>
+        </Button>
+        <JFXTextField fx:id="emailField" layoutX="144.0" layoutY="172.0" prefHeight="25.0" prefWidth="288.0"
+                      promptText="Email :"/>
+        <Text fill="#838088" layoutX="144.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Text>
+        <JFXTextField fx:id="newpassword" layoutX="146.0" layoutY="262.0" prefHeight="25.0" prefWidth="288.0"
+                      promptText="New Password :"/>
+        <JFXTextField fx:id="reenternewpassword" layoutX="146.0" layoutY="304.0" prefHeight="25.0" prefWidth="288.0"
+                      promptText="Re-enter New Password :"/>
+        <JFXTextField fx:id="otpcode" layoutX="146.0" layoutY="349.0" prefHeight="25.0" prefWidth="203.0"
+                      promptText="OTP Code :"/>
+    </children>
 </AnchorPane>
