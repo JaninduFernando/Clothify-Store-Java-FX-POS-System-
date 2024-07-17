@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="customeranchor" prefHeight="551.0" prefWidth="927.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ManageCustomerController">
+<AnchorPane fx:id="customeranchor" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ManageCustomerController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a5ebe" height="538.0" layoutX="6.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="66.0" layoutX="208.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />

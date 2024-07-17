@@ -1,6 +1,7 @@
 package org.example.edu.controllers;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -13,13 +14,13 @@ import org.example.edu.bo.custom.impl.CustomerBoImpl;
 import org.example.edu.bo.custom.impl.OrderBoImpl;
 import org.example.edu.bo.custom.impl.ProductBoImpl;
 import org.example.edu.bo.custom.impl.SupplierBoImpl;
-import org.example.edu.model.Customer;
-import org.example.edu.model.Order;
-import org.example.edu.model.Product;
-import org.example.edu.model.Supplier;
+import org.example.edu.dao.Custom.impl.OrderDaoImpl;
+import org.example.edu.entity.OrderItemEntity;
+import org.example.edu.model.*;
 import org.example.edu.util.BoType;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewOrdersController implements Initializable {
@@ -53,7 +54,8 @@ public class ViewOrdersController implements Initializable {
         discountCol.setCellValueFactory(new PropertyValueFactory<>("qty"));
         qtyCol.setCellValueFactory(new PropertyValueFactory<>("discount"));
 
-        viewOrderTable.setItems(productBoImpl.getAllPro());
+        viewOrderTable.setItems(new OrderBoImpl().getOrderDetails());
+
     }
 
     boolean isRowSelect, isMouseClick, isPriceValid;
@@ -70,9 +72,9 @@ public class ViewOrdersController implements Initializable {
 
             id = orderId;
 
-            Order order = orderBoImpl.getOrderById(orderId);
-            Customer customer = customerBoImpl. getCusById(order.getCusId());
-            Supplier supplier = supplierBoImpl.getSupById(product.getSupId());
+            Order order = new OrderBoImpl().getOrderById(orderId);
+            Customer customer = new CustomerBoImpl(). getCusById(order.getCusId());
+            Supplier supplier = new SupplierBoImpl().getSupById(product.getSupId());
 
             cusAddress.setText(customer.getAddress());
             cusId.setText(customer.getId());
@@ -81,7 +83,7 @@ public class ViewOrdersController implements Initializable {
 
             supId.setText(supplier.getId());
             supName.setText(supplier.getName());
-            supCompany.setText(supplier.getAddress());
+            supCompany.setText(supplier.getCompany());
             supEmail.setText(supplier.getEmail());
 
         } catch(Exception e)

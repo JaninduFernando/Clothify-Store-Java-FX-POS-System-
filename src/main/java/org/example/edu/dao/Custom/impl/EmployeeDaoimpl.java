@@ -3,7 +3,6 @@ package org.example.edu.dao.Custom.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.edu.dao.Custom.EmployeeDao;
-import org.example.edu.entity.SupplierEntity;
 import org.example.edu.entity.EmployeeEntity;
 import org.example.edu.util.HibernateUtil;
 import org.hibernate.Session;
@@ -80,16 +79,16 @@ public class EmployeeDaoimpl implements EmployeeDao {
         return i>0;
     }
 
-    public SupplierEntity searchById(String id) {
+    public EmployeeEntity searchById(String id) {
 
         Session session = HibernateUtil.getSession();
         session.getTransaction();
 
         Query query = session.createQuery("FROM user WHERE id=:id");
         query.setParameter("id",id);
-        SupplierEntity supplierEntity = (SupplierEntity) query.uniqueResult();
+        EmployeeEntity employeeEntity = (EmployeeEntity) query.uniqueResult();
         session.close();
-        return supplierEntity;
+        return employeeEntity;
 
     }
 

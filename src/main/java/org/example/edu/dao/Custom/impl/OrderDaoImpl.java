@@ -1,12 +1,16 @@
 package org.example.edu.dao.Custom.impl;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.edu.dao.Custom.OrderDao;
+import org.example.edu.entity.EmployeeEntity;
 import org.example.edu.entity.OrderEntity;
 import org.example.edu.entity.OrderItemEntity;
 import org.example.edu.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
 
@@ -88,5 +92,14 @@ public class OrderDaoImpl implements OrderDao {
         session.close();
 
         return orderEntity;
+    }
+
+    public List<OrderItemEntity> searchOrderDetails() {
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+
+        List<OrderItemEntity> fromOrderDetails = session.createQuery("FROM order_details").list();
+        return fromOrderDetails;
+
     }
 }

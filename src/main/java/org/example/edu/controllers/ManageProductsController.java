@@ -95,6 +95,7 @@ public class ManageProductsController implements Initializable {
 
             boolean isInsert = productBoImpl.insertPro(product);
             if (isInsert) {
+                pId.setText(productBoImpl.generateProId());
                 productTable.setItems(productBoImpl.getAllPro());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Product Added");

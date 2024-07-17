@@ -126,10 +126,17 @@ public class ManageEmployeeController implements Initializable {
 
     public void addaction(ActionEvent actionEvent) {
         
-        
-        System.out.println(employeename.getText());
-        System.out.println(employeeaddress.getText());
-        System.out.println(employeeemail.getText());
+        Employee employee = new Employee(employeeid.getText(),employeename.getText(),employeeemail.getText()
+                ,"qwerty","Employee",employeeaddress.getText());
+        boolean isInsert = employeeBoImpl.insertUser(employee);
+
+        if (isInsert) {
+            employeeid.setText(employeeBoImpl.generateEmployeeId());
+            employeetable.setItems(employeeBoImpl.getAllUsers());
+
+        }
+
+
     }
 
     public void searchaction(ActionEvent actionEvent) {

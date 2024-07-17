@@ -1,6 +1,7 @@
 package org.example.edu.bo.custom.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.edu.bo.custom.OrderBo;
 import org.example.edu.dao.Custom.impl.OrderDaoImpl;
@@ -10,6 +11,8 @@ import org.example.edu.entity.OrderItemEntity;
 import org.example.edu.model.Order;
 import org.example.edu.model.OrderItem;
 import org.example.edu.util.DaoType;
+
+import java.util.List;
 
 public class OrderBoImpl implements OrderBo {
 
@@ -46,5 +49,15 @@ public class OrderBoImpl implements OrderBo {
     public Order getOrderById(String orderId) {
         OrderEntity orderEntity = orderDaoImpl.searchById(orderId);
         return new ObjectMapper().convertValue(orderEntity, Order.class);
+    }
+
+    public ObservableList<OrderItem> getOrderDetails() {
+
+        List<OrderItemEntity> orderItemEntities = new OrderDaoImpl().searchOrderDetails();
+        ObservableList<OrderItem> orderItems = FXCollections.observableArrayList();
+        orderItemEntities.forEach(orderItemEntity -> {
+            orderItems.add(new ObjectMapper().convertValue(orderItemEntity,OrderItem.class));
+        });
+        return orderItems;
     }
 }

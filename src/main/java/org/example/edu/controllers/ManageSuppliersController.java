@@ -49,7 +49,7 @@ public class ManageSuppliersController implements Initializable {
         Supplier supplier = supplierBoImpl.getSupById(supid.getText());
         supname.setText(supplier.getName());
         supemail.setText(supplier.getEmail());
-        supaddress.setText(supplier.getAddress());
+        supaddress.setText(supplier.getCompany());
     }
 
     public void addaction(ActionEvent actionEvent) {
@@ -67,6 +67,7 @@ public class ManageSuppliersController implements Initializable {
 
             boolean isInsert =  supplierBoImpl.insertSupplier(supplier);
             if (isInsert) {
+                supid.setText(supplierBoImpl.generateSupId());
                 suppliertable.setItems( supplierBoImpl.getAllSupplier());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Supplier Added");

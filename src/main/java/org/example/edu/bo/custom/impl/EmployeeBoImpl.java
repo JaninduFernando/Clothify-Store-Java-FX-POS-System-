@@ -46,8 +46,8 @@ public class EmployeeBoImpl implements EmployeeBo {
 
     public Employee getUserById(String id) {
 
-        SupplierEntity supplierEntity = employeeDaoimpl.searchById(id);
-        return new ObjectMapper().convertValue(supplierEntity, Employee.class);
+        EmployeeEntity employeeEntity = employeeDaoimpl.searchById(id);
+        return new ObjectMapper().convertValue(employeeEntity, Employee.class);
 
     }
 

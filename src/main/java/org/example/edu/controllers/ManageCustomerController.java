@@ -34,7 +34,6 @@ public class ManageCustomerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cusid.setText(customerBoImpl.generateEmployeeId());
-
         idcol.setCellValueFactory(new PropertyValueFactory<>("id"));
         namecol.setCellValueFactory(new PropertyValueFactory<>("name"));
         addresscol.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -55,12 +54,12 @@ public class ManageCustomerController implements Initializable {
     }
 
     public void addaction(ActionEvent actionEvent) {
+
         Customer customer = new Customer(
                 cusid.getText(),
                 cusname.getText(),
-                cusemail.getText(),
-                cusaddress.getText()
-
+                cusaddress.getText(),
+                cusemail.getText()
         );
 
         if (!cusname.getText().equals("") && customerBoImpl.isValidEmail(cusemail.getText()) && !cusaddress.getText().equals("")) {
@@ -68,6 +67,7 @@ public class ManageCustomerController implements Initializable {
 
             boolean isInsert = customerBoImpl.insertUser(customer);
             if (isInsert) {
+                cusid.setText(customerBoImpl.generateEmployeeId());
                 customertable.setItems(customerBoImpl.getAllCustomer());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Customer Added");
@@ -148,8 +148,9 @@ public class ManageCustomerController implements Initializable {
             Customer customer = new Customer(
                     cusid.getText(),
                     cusname.getText(),
-                    cusemail.getText(),
-                    cusaddress.getText());
+                    cusaddress.getText(),
+                    cusemail.getText()
+            );
 
             boolean isUpdated = customerBoImpl.updateCus(customer);
             if (isUpdated) {

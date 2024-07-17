@@ -178,6 +178,7 @@ public class PlaceOrderController implements Initializable {
         String Cusid =cmbCustomerIDs.getValue().toString();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date orderDate = null;
+
         try {
             orderDate = format.parse(lblDate.getText());
         } catch (ParseException e) {
@@ -198,7 +199,7 @@ public class PlaceOrderController implements Initializable {
 
         orderBoImpl.saveOrderDetails(orderItemObservableList);
 
-        Order Order = new Order(id,Cusid,orderDate,amount );
+        Order Order = new Order(id,Cusid,new Date(),amount );
 
         boolean isInsert = orderBoImpl.insertOrder(Order);
         if (isInsert) {
