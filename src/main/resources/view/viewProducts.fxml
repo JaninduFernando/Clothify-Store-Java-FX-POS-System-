@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="productanchor" onMouseClicked="#AnchorClick" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewProductsController">
+<AnchorPane fx:id="VProductanchor" onMouseClicked="#AnchorClick" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewProductsController">
    <children>
       <JFXTextField fx:id="pId" layoutX="256.0" layoutY="66.0" prefHeight="26.0" prefWidth="147.0" promptText="Product Id">
          <font>
@@ -20,7 +20,7 @@
          </font>
       </JFXTextField>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cad3c8" height="54.0" layoutX="210.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="557.0" />
-      <Label layoutX="404.0" layoutY="17.0" prefHeight="22.0" prefWidth="131.0" text="Item  Managment">
+      <Label layoutX="388.0" layoutY="14.0" prefHeight="22.0" prefWidth="131.0" text="View Items">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -35,7 +35,7 @@
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="productTable" layoutX="214.0" layoutY="293.0" onMouseClicked="#dataBar" prefHeight="182.0" prefWidth="546.0">
+      <TableView fx:id="VProductTable" layoutX="214.0" layoutY="293.0" onMouseClicked="#dataBar" prefHeight="182.0" prefWidth="546.0">
          <columns>
             <TableColumn fx:id="idcol" text="Product Id" />
             <TableColumn fx:id="namecol" prefWidth="104.79998779296875" text="Product Name" />

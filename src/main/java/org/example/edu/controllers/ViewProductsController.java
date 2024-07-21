@@ -16,8 +16,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ViewProductsController implements Initializable {
-    public AnchorPane viewOrderanchor;
-    public AnchorPane productanchor;
     public JFXTextField pId;
     public JFXTextField pName;
     public JFXTextField pQty;
@@ -31,6 +29,8 @@ public class ViewProductsController implements Initializable {
     public ComboBox cmbSize;
     public ComboBox cmbSup;
     public JFXTextField pricePerOne;
+    public AnchorPane VProductanchor;
+    public TableView VProductTable;
 
     ProductBoImpl productBoImpl = new ProductBoImpl();
 
@@ -49,15 +49,7 @@ public class ViewProductsController implements Initializable {
     }
     SceneSwitchController sceneSwitch = SceneSwitchController.getInstance();
 
-    public void AnchorClick(MouseEvent mouseEvent) {
 
-        pId.setText("");
-        pName.setText("");
-        pQty.setText(String.valueOf(""));
-        pricePerOne.setText(String.valueOf(""));
-        cmbSize.getSelectionModel().select("");
-        cmbSup.getSelectionModel().select("");
-    }
 
 
 
@@ -100,6 +92,15 @@ public class ViewProductsController implements Initializable {
                 isMouseClick = true;
             }
         }
+    }
+    public void AnchorClick(MouseEvent mouseEvent) {
+
+        pId.setText("");
+        pName.setText("");
+        pQty.setText(String.valueOf(""));
+        pricePerOne.setText(String.valueOf(""));
+        cmbSize.getSelectionModel().select("");
+        cmbSup.getSelectionModel().select("");
     }
 
 
