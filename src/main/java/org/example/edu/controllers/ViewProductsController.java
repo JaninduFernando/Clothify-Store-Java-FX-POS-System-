@@ -19,7 +19,6 @@ public class ViewProductsController implements Initializable {
     public JFXTextField pId;
     public JFXTextField pName;
     public JFXTextField pQty;
-    public TableView productTable;
     public TableColumn idcol;
     public TableColumn namecol;
     public TableColumn sizecol;
@@ -44,7 +43,7 @@ public class ViewProductsController implements Initializable {
         supIdcol.setCellValueFactory(new PropertyValueFactory<>("supId"));
         pricePerOnecol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        productTable.setItems(productBoImpl.getAllPro());
+        VProductTable.setItems(productBoImpl.getAllPro());
 
     }
     SceneSwitchController sceneSwitch = SceneSwitchController.getInstance();
@@ -70,7 +69,7 @@ public class ViewProductsController implements Initializable {
 
     boolean isAction = true,isMouseClick,isPriceValid ;
     public void dataBar(MouseEvent mouseEvent) {
-        int index = productTable.getSelectionModel().getSelectedIndex();
+        int index = VProductTable.getSelectionModel().getSelectedIndex();
 
 
         if(index < 0){
@@ -93,7 +92,7 @@ public class ViewProductsController implements Initializable {
             }
         }
     }
-    public void AnchorClick(MouseEvent mouseEvent) {
+    public void VProductanchor(MouseEvent mouseEvent) {
 
         pId.setText("");
         pName.setText("");

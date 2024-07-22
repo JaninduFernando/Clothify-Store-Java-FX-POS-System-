@@ -11,7 +11,7 @@ import org.example.edu.model.Supplier;
 import org.example.edu.util.DaoType;
 
 public class SupplierBoImpl implements SupplierBo {
-    SupplierDaoImpl supplierDao = DaoFactory.getInstance().getDao(DaoType.SUPPLIER);
+    static SupplierDaoImpl supplierDao = DaoFactory.getInstance().getDao(DaoType.SUPPLIER);
 
 
     public boolean isValidEmail(String email) {
@@ -27,7 +27,7 @@ public class SupplierBoImpl implements SupplierBo {
 
     }
 
-    public ObservableList getAllSupplier() {
+    public static ObservableList getAllSupplier() {
 
         ObservableList<SupplierEntity> supplierEntities = supplierDao.searchAll();
         ObservableList<Supplier> list = FXCollections.observableArrayList();
@@ -50,7 +50,7 @@ public class SupplierBoImpl implements SupplierBo {
         return String.format("S%04d", number);
     }
 
-    public Supplier getSupById(String id) {
+    public static Supplier getSupById(String id) {
         SupplierEntity supplierEntity = supplierDao.searchById(id);
         return new ObjectMapper().convertValue(supplierEntity, Supplier.class);
     }

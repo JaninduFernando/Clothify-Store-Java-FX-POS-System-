@@ -9,13 +9,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="supplieranchor" prefHeight="551.0" prefWidth="927.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewSupplierController">
+<AnchorPane fx:id="VSupplieranchor" prefHeight="551.0" prefWidth="927.0" style="-fx-background-color: #dff9fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.edu.controllers.ViewSupplierController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a5ebe" height="538.0" layoutX="6.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="66.0" layoutX="208.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />
       <JFXTextField fx:id="supid" layoutX="276.0" layoutY="99.0" prefHeight="25.0" prefWidth="195.0" promptText="Supplier Id" />
       <JFXTextField fx:id="supemail" layoutX="557.0" layoutY="191.0" prefHeight="25.0" prefWidth="196.0" promptText="Supplier Email" />
-      <JFXTextField fx:id="supaddress" layoutX="276.0" layoutY="191.0" prefHeight="25.0" prefWidth="195.0" promptText="Supplier Address" />
+      <JFXTextField fx:id="supCompany" layoutX="276.0" layoutY="191.0" prefHeight="25.0" prefWidth="195.0" promptText="Supplier Company" />
       <JFXTextField fx:id="supname" layoutX="565.0" layoutY="99.0" prefHeight="25.0" prefWidth="195.0" promptText="Supplier Name" />
       <TableView fx:id="suppliertable" layoutX="217.0" layoutY="288.0" onMouseClicked="#dataBar" prefHeight="242.0" prefWidth="694.0">
          <columns>
